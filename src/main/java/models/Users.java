@@ -1,7 +1,6 @@
 package models;
 
 import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +15,11 @@ public class Users {
     private int price;
 
     public Users(String username, String phone_no, String location, String driver_name, int price) {
-
+        this.username = username;
+        this.phone_no = phone_no;
+        this.location = location;
+        this.driver_name = driver_name;
+        this.price = price;
     }
 
     //getters
