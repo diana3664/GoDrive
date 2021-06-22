@@ -88,6 +88,15 @@ public class Ratings {
 
     }
 
+    public static Ratings find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM ratings WHERE id = :id";
+            return con.createQuery(sql)
+                    .addParameter("id",id)
+                    .executeAndFetchFirst(Ratings.class);
+        }
+    }
+
     //delete
     public void deleteById(){
         try(Connection con = DB.sql2o.open()){

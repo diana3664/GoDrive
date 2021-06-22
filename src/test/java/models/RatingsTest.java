@@ -65,5 +65,19 @@ public class RatingsTest {
     }
 
 
+    @Test
+    public void findUserById(){
+        Users testUser = new Users("User One","0712345678","Nairobi-Mombasa","Driver A",1000);
+        testUser.save();
+
+        Ratings testratings = new Ratings(testUser.getDriver_name(),"The journey had good music",5);
+        testratings.save();
+        Users testUser2 = new Users("User Two","0722345678","Nairobi-Kayole","Driver A",1000);
+        testUser2.save();
+
+        Ratings testratings2 = new Ratings(testUser2.getDriver_name(),"The Driver was overspeeding",5);
+        testratings2.save();
+        assertEquals(Ratings.find(testratings2.getId()), testratings2);
+    }
 
 }
