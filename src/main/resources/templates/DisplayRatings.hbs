@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+    <h1>Review list!</h1>
+
+    {{#if Ratings}} <!--if posts exist, then -->
+    {{#each Ratings }} <!--loop-->
+    <p>Current Review:</p>
+    <p>{{ name }}</p> <!--show-->
+    <p>{{ comment }}</p> <!--show-->
+    <p>{{ review }}</p> <!--show-->
+
+    {{/each}}
+    {{else}} <!--no posts!-->
+    <p>No posts!</p>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

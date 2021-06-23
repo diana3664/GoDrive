@@ -1,0 +1,29 @@
+
+
+{{#partial "content"}}
+
+
+    <h1>Give a review of The journey</h1>
+
+
+    <form action="/rating/create/new" method="post" id="image">
+        <div class="form-group">
+            <label for="name">driver_name</label>
+            <input id="name" name="name" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="comment">comment</label>
+            <input id="comment" name="comment" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="review">review</label>
+            <input id="review" name="review" type="text" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-default">Send Review</button>
+
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}
