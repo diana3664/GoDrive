@@ -24,6 +24,7 @@ public class RatingsTest {
 
 
 
+
     @Test
     public void Ratings_instantiatesCorrectly_true(){
         Ratings testratings = new Ratings("maalim","The journey had good music",5);
