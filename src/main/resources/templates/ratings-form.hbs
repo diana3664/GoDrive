@@ -7,8 +7,16 @@
 
 
     <form action="/rating/create/new" method="post" id="image">
+
+        <label>Driver</label>
+        <select class="form-control" name="RatingSelected">
+            {{#each Ratings }}
+                <option value="{{id}}"> {{name}} </option>
+            {{/each}}
+        </select>
+
         <div class="form-group">
-            <label for="name">driver_name</label>
+            <label for="name" value="{{id}}">{{name}}</label>
             <input id="name" name="name" type="text" class="form-control">
         </div>
         <div class="form-group">

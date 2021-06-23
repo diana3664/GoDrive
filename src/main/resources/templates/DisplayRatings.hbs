@@ -2,16 +2,16 @@
 
     <h1>Review list!</h1>
 
-    {{#if Ratings}} <!--if posts exist, then -->
-    {{#each Ratings }} <!--loop-->
+    {{#if ratings}} <!--if posts exist, then -->
+    {{#each ratings }} <!--loop-->
     <p>Current Review:</p>
-    <p>{{ name }}</p> <!--show-->
+    <p>{{ name.driver_name }}</p> <!--show-->
     <p>{{ comment }}</p> <!--show-->
     <p>{{ review }}</p> <!--show-->
 
     {{/each}}
     {{else}} <!--no posts!-->
-    <p>No posts!</p>
+    <p>No Review</p>
     {{/if}}
 
 {{/partial}}
