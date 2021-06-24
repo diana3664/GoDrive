@@ -1,3 +1,4 @@
+import models.Ratings;
 import models.Users;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -21,6 +22,7 @@ public class App {
             return new ModelAndView(model,"login.hbs");
         },new HandlebarsTemplateEngine());
 
+
         get("/user/request",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"request-form.hbs");
@@ -38,10 +40,37 @@ public class App {
             return new ModelAndView(model,"request-success.hbs");
         },new HandlebarsTemplateEngine());
 
+
+
+
         get("/admin",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"admin-page.hbs");
         },new HandlebarsTemplateEngine());
+
+
+
+
+        get("/rating/create", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "ratings-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        post("/rating/create/new", (request,response)-> {
+            Map<String, Object> model = new HashMap<>();
+
+            String RatingSelected = request.queryParams("RatingSelected");
+            String comment = request.queryParams("comment");
+           int review =Integer.parseInt(request.queryParams("review")) ;
+            Ratings ratings = new Ratings(RatingSelected,comment,review);
+            ratings.save();
+            model.put("ratings", ratings);
+
+            return new ModelAndView(model, "successRatings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
 
     }
 }
