@@ -60,11 +60,10 @@ public class App {
         post("/rating/create/new", (request,response)-> {
             Map<String, Object> model = new HashMap<>();
 
-
-            String name = request.queryParams("name");
+            String RatingSelected = request.queryParams("RatingSelected");
             String comment = request.queryParams("comment");
-            int review =Integer.parseInt(request.queryParams("3")) ;
-            Ratings ratings = new Ratings(name,comment,3);
+           int review =Integer.parseInt(request.queryParams("review")) ;
+            Ratings ratings = new Ratings(RatingSelected,comment,review);
             ratings.save();
             model.put("ratings", ratings);
 
