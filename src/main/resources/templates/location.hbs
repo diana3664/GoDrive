@@ -24,19 +24,21 @@
 {{/partial}}
 
 {{#partial "content"}}
-    <form action="/admin/location/add" method="post">
-        <h3>Add location/route</h3>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="location" name="location" placeholder="Nairobi-Mombasa">
-            <label for="location">Location</label>
-        </div>
-        <div class="form-floating">
-            <input type="number" class="form-control" id="price" name="price" placeholder="1000">
-            <label for="price">Price</label>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-success">Add Location</button>
-    </form>
+    <div>
+        <form action="/admin/location/add" method="post">
+            <h3>Add location/route</h3>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="location" name="location" placeholder="Nairobi-Mombasa">
+                <label for="location">Location</label>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" id="price" name="price" placeholder="1000">
+                <label for="price">Price</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Add Location</button>
+        </form>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}
