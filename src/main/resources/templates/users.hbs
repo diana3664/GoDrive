@@ -1,0 +1,30 @@
+{{#partial "content"}}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone No</th>
+            <th scope="col">Location</th>
+            <th scope="col">Driver Name</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#if users}}
+            {{#each users as |u|}}
+                <tr>
+                    <th scope="row">{{u.id}}</th>
+                    <td>{{u.username}}</td>
+                    <td>{{u.phone_no}}</td>
+                    <td>{{u.location}}</td>
+                    <td>{{u.driver_name}}</td>
+                    <td>{{u.price}}</td>
+                </tr>
+            {{/each}}
+        {{/if}}
+        </tbody>
+    </table>
+{{/partial}}
+
+{{>layout.hbs}}

@@ -24,6 +24,12 @@ public class App {
             return new ModelAndView(model,"login.hbs");
         },new HandlebarsTemplateEngine());
 
+        get("/user",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            model.put("users",Users.all());
+            return new ModelAndView(model,"users.hbs");
+        },new HandlebarsTemplateEngine());
+
 
         get("/user/request",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
