@@ -2,56 +2,54 @@
 
 {{#partial "content"}}
 
-    <div>
-        <form action="/user/request/new" class="row g-3" method="post">
-            <div class="col-md-6">
-                <label for="username" class="form-label">Name</label>
-                <input type="text" class="form-control" name="username" id="username" required>
-            </div>
-            <div class="col-md-6">
-                <label for="phone_no" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" name="phone_no" id="phone_no" required>
-            </div>
-            <div class="col-md-6">
-                <label for="location" class="form-label">Location</label>
-                <select id="location" name="location" class="form-select" required>
-                    <option selected>Choose...</option>
-                    {{#if locations}}
-                        {{#each locations as |l|}}
-                            <option name="location" value="{{l.id}}">{{l.location}}</option>
-                        {{/each}}
-                    {{/if}}
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label for="driver_name" class="form-label">Driver Name</label>
-                <select id="driver_name" name="driver_name" class="form-select">
-                    <option selected>Choose...</option>
-                    {{#if drivers}}
-                        {{#each drivers as |d|}}
-                            <option name="driver_name" value="{{d.id}}">{{d.driver_name}}</option>
-                        {{/each}}
-                    {{/if}}
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="price" class="form-label">Prize</label>
-                <input type="number" id="price" name="price" value="{{l.price}}">
+    <form action="/user/request/new" class="row g-3" method="post">
+        <div class="col-md-6">
+            <label for="username" class="form-label">Name</label>
+            <input type="text" class="form-control" name="username" id="username" required>
+        </div>
+        <div class="col-md-6">
+            <label for="phone_no" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone_no" id="phone_no" required>
+        </div>
+        <div class="col-md-6">
+            <label for="location" class="form-label">Location</label>
+            <select id="location" name="location" class="form-select" required>
+                <option selected>Choose...</option>
+                {{#if locations}}
+                    {{#each locations as |l|}}
+                        <option name="location">{{l.location}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="driver_name" class="form-label">Driver Name</label>
+            <select id="driver_name" name="driver_name" class="form-select">
+                <option selected>Choose...</option>
+                {{#if drivers}}
+                    {{#each drivers as |d|}}
+                        <option name="driver_name">{{d.driver_name}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="price" class="form-label">Prize</label>
+            <input type="number" id="price" name="price" value="{{l.price}}">
 
-                <!--                <select id="price" name="price" class="form-select" required>-->
-<!--                    <option selected>Choose...</option>-->
-<!--                    {{#if locations}}-->
-<!--                        {{#each locations as |l|}}-->
-<!--                            <option name="price" value="{{l.id}}">{{l.price}}</option>-->
-<!--                        {{/each}}-->
-<!--                    {{/if}}-->
-<!--                </select>-->
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Request Ride</button>
-            </div>
-        </form>
-    </div>
+            <!--                <select id="price" name="price" class="form-select" required>-->
+            <!--                    <option selected>Choose...</option>-->
+                <!--                    {{#if locations}}-->
+                <!--                        {{#each locations as |l|}}-->
+                <!--                            <option name="price" value="{{l.id}}">{{l.price}}</option>-->
+                    <!--                        {{/each}}-->
+                <!--                    {{/if}}-->
+            <!--                </select>-->
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Request Ride</button>
+        </div>
+    </form>
 {{/partial}}
 
 {{>layout.hbs}}
