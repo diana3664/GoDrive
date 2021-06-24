@@ -27,19 +27,21 @@ public class App {
 
         get("/user/request",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
+            model.put("drivers",Drivers.all());
+            model.put("locations",Locations.all());
             return new ModelAndView(model,"request-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/user/request/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            String username = request.params("username");
-            String phone_no = request.params("phone_no");
-            String location = request.params("location");
-            String driver_name = request.params("driver_name");
-            int price = Integer.parseInt(request.params("price"));
-            Users users = new Users(username,phone_no,location,driver_name,price);
-            users.save();
-            model.put("drivers",Drivers.all());
+            String username = request.queryParams("username");
+            String phone_no = request.queryParams("phone_no");
+            String location = request.queryParams("location");
+            String driver_name = request.queryParams("driver_name");
+            int price = Integer.parseInt(request.queryParams("price"));
+            Users testUser = new Users(username,phone_no,location,driver_name,price);
+            testUser.save();
+            model.put("users",Users.all());
             return new ModelAndView(model,"request-success.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -57,15 +59,6 @@ public class App {
             return new ModelAndView(model,"admin-page.hbs");
         },new HandlebarsTemplateEngine());
 
-        post("/admin/driver/create",(request, response) -> {
-            Map<String,Object> model = new HashMap<>();
-            String driver_name = request.queryParams("driver_name");
-            Drivers testDriver = new Drivers(driver_name);
-            testDriver.save();
-            model.put("drivers",Drivers.all());
-            return new ModelAndView(model,"driverSuccess.hbs");
-        }, new HandlebarsTemplateEngine());
-
         get("/admin/location",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"location.hbs");
@@ -73,8 +66,8 @@ public class App {
 
         post("/admin/location/add",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            String location = request.params("location");
-            int price = Integer.parseInt(request.params("price"));
+            String location = request.queryParams("location");
+            int price = Integer.parseInt(request.queryParams("price"));
             Locations locations = new Locations(location,price);
             locations.save();
             model.put("locations",Locations.all());
