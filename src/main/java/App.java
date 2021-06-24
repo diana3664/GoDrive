@@ -1,3 +1,5 @@
+import models.Drivers;
+import models.Locations;
 import models.Users;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -23,6 +25,8 @@ public class App {
 
         get("/user/request",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
+            model.put("drivers",Drivers.all());
+            model.put("locations",Locations.all());
             return new ModelAndView(model,"request-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -41,6 +45,20 @@ public class App {
         get("/admin",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"admin-page.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/admin/location",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            return new ModelAndView(model,"location.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/admin/location/add",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            String location = request.params("location");
+            int price = Integer.parseInt(request.params("price"));
+            Locations locations = new Locations(location,price);
+            locations.save();
+            return new ModelAndView(model,"location-success.hbs");
         },new HandlebarsTemplateEngine());
 
     }

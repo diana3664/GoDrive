@@ -16,9 +16,9 @@
                 <label for="location" class="form-label">Location</label>
                 <select id="location" name="location" class="form-select" required>
                     <option selected>Choose...</option>
-                    {{#if location}}
-                        {{#each location as |l|}}
-                            <option name="location" value="l.id">{{l.location}}</option>
+                    {{#if locations}}
+                        {{#each locations as |l|}}
+                            <option name="location" value="{{l.id}}">{{l.location}}</option>
                         {{/each}}
                     {{/if}}
                 </select>
@@ -27,20 +27,25 @@
                 <label for="driver_name" class="form-label">Driver Name</label>
                 <select id="driver_name" name="driver_name" class="form-select">
                     <option selected>Choose...</option>
-                    <option>...</option>
+                    {{#if drivers}}
+                        {{#each drivers as |d|}}
+                            <option name="driver_name" value="{{d.id}}">{{d.driver_name}}</option>
+                        {{/each}}
+                    {{/if}}
                 </select>
             </div>
             <div class="col-md-2">
                 <label for="price" class="form-label">Prize</label>
-                <input type="text" class="form-control" id="price" name="price">
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
+                <input type="number" id="price" name="price" value="{{l.price}}">
+
+                <!--                <select id="price" name="price" class="form-select" required>-->
+<!--                    <option selected>Choose...</option>-->
+<!--                    {{#if locations}}-->
+<!--                        {{#each locations as |l|}}-->
+<!--                            <option name="price" value="{{l.id}}">{{l.price}}</option>-->
+<!--                        {{/each}}-->
+<!--                    {{/if}}-->
+<!--                </select>-->
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Request Ride</button>
