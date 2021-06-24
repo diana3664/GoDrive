@@ -1,17 +1,21 @@
 {{#partial "content"}}
-
-    <h1>Review list!</h1>
-
-    {{#if ratings}} <!--if posts exist, then -->
-    {{#each ratings }} <!--loop-->
-    <p>Current Review:</p>
-    <p>{{ name.driver_name }}</p> <!--show-->
-    <p>{{ comment }}</p> <!--show-->
-    <p>{{ review }}</p> <!--show-->
-
-    {{/each}}
-    {{else}} <!--no posts!-->
-    <p>No Review</p>
+    {{#if ratings}}
+        {{#each ratings as |r|}}
+            <div class="col-md-6 align-items-center rounded-3 border shadow-lg">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{r.driver_name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Rating:{{r.review}}</h6>
+                        <p class="card-text">Comment:{{r.comment}}</p>
+                        <a href="/" class="card-link">Create Review</a>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <br>
+        {{/each}}
+    {{else}}
+        No rating
     {{/if}}
 
 {{/partial}}

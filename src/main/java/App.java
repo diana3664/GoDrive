@@ -74,7 +74,11 @@ public class App {
             return new ModelAndView(model,"location-success.hbs");
         },new HandlebarsTemplateEngine());
 
-
+        get("/ratings",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            model.put("ratings",Ratings.all());
+            return new ModelAndView(model,"DisplayRatings.hbs");
+        }, new HandlebarsTemplateEngine());
 
         get("/rating/create", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
