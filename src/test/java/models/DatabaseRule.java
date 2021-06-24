@@ -8,14 +8,19 @@ public class DatabaseRule  extends ExternalResource {
 
     @Override
     protected void before() {
-        DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/godrive_test", "postgres", "wildlife");
+
+        DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/godrive_test", "moringa", "123");
+
 
     }
 
     @Override
     protected void after() {
         try(Connection con = DB.sql2o.open()) {
-
+            String deleteRatingsQuery = "DELETE FROM ratings *;";
+            con.createQuery(deleteRatingsQuery).executeUpdate();
+            String deleteUsersQuery = "DELETE FROM  users*;";
+            con.createQuery(deleteUsersQuery).executeUpdate();
         }
     }
 
