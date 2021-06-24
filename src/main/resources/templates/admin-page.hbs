@@ -30,8 +30,16 @@
 {{/partial}}
 
 {{#partial "content"}}
-
-
+    <div>
+        <h1><b>Add Employee</b></h1>
+        <form action="/admin/driver/create" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="driver_name" name="driver_name" placeholder="Driver Name" required>
+                <label for="driver_name">Driver Name</label>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Add</button>
+        </form>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}
