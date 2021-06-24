@@ -78,6 +78,7 @@ public class App {
 
         get("/rating/create", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            model.put("drivers",Drivers.all());
             return new ModelAndView(model, "ratings-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -91,7 +92,6 @@ public class App {
             Ratings ratings = new Ratings(RatingSelected,comment,review);
             ratings.save();
             model.put("ratings", ratings);
-
             return new ModelAndView(model, "successRatings.hbs");
         }, new HandlebarsTemplateEngine());
 

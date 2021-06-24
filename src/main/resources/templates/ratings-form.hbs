@@ -9,22 +9,28 @@
     <form action="/rating/create/new" method="post" id="image">
 
         <label>Driver</label>
-        <select class="form-control" name="RatingSelected">
-            {{#each ratings }}
-                <option value="{{id}}"> {{name}} </option>
-            {{/each}}
+        <select class="form-control" name="RatingSelected" required>
+            {{#if drivers}}
+                {{#each drivers as |d|}}
+                    <option  name="driver_name" >{{d.driver_name}}</option>
+                {{/each}}
+            {{/if}}
         </select>
         <br>
         <br>
         <div class="form-group">
             <label for="comment">comment</label>
-            <input id="comment" name="comment" type="text" class="form-control">
+            <input id="comment" name="comment" type="text" class="form-control" required>
         </div>
         <br>
         <br>
         <div class="form-group">
-            <label for="review">A 1 to 10  review</label>
-            <input id="review" name="review" type="text" class="form-control">
+
+            <label for="customRange3" class="form-label">Rate</label>
+            <div class="range">
+                <input id="review" name="review" type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3" required/>
+            </div>
+
         </div>
 
         <br>
