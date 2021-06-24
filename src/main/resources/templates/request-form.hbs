@@ -17,7 +17,7 @@
                 <option selected>Choose...</option>
                 {{#if locations}}
                     {{#each locations as |l|}}
-                        <option name="location" value="{{l.id}}">{{l.location}}</option>
+                        <option name="location">{{l.location}}</option>
                     {{/each}}
                 {{/if}}
             </select>
@@ -28,7 +28,7 @@
                 <option selected>Choose...</option>
                 {{#if drivers}}
                     {{#each drivers as |d|}}
-                        <option name="driver_name" value="{{d.id}}">{{d.driver_name}}</option>
+                        <option name="driver_name">{{d.driver_name}}</option>
                     {{/each}}
                 {{/if}}
             </select>
