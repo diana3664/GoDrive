@@ -11,7 +11,7 @@ Our project offers transportation services and at the comfort of your phone, we 
 # Setup instructions
 
 1. Clone the repo:
-   `https://github.com/diana3664/GoDrive`
+   `https://github.com/l00pinfinity/GoDrive/blob/main/godrive.png`
 
 2. Switch into the directory
    `cd reponame`
